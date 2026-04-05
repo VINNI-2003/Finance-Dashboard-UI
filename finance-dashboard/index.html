@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Dashboard</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Finance Dashboard</h1>
+      <div class="controls">
+        <select id="roleSelect">
+          <option value="viewer">Viewer</option>
+          <option value="admin">Admin</option>
+        </select>
+        <button id="darkToggle">🌙</button>
+      </div>
+    </header>
+
+    <section class="cards">
+      <div class="card">
+        <h3>Total Balance</h3>
+        <p id="balance">₹0</p>
+      </div>
+      <div class="card">
+        <h3>Income</h3>
+        <p id="income">₹0</p>
+      </div>
+      <div class="card">
+        <h3>Expenses</h3>
+        <p id="expense">₹0</p>
+      </div>
+    </section>
+
+    <div class="charts">
+      <section class="chart">
+        <h2>Monthly Trend</h2>
+        <canvas id="lineChart"></canvas>
+      </section>
+
+      <section class="chart">
+        <h2>Spending Breakdown</h2>
+        <canvas id="pieChart"></canvas>
+      </section>
+    </div>
+
+    <section class="transactions">
+      <h2>Transactions</h2>
+
+      <div class="filters">
+        <input type="text" id="search" placeholder="Search category" />
+        <select id="filterType">
+          <option value="all">All</option>
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+        <button id="addBtn">Add</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Category</th>
+              <th>Amount</th>
+              <th>Type</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="transactionTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="insights">
+      <h2>📊 Insights</h2>
+      <div class="insight-grid">
+        <div class="insight-box">
+          <span>🔥 Highest</span>
+          <h3 id="insightHighest"></h3>
+        </div>
+        <div class="insight-box">
+          <span>📅 This Month</span>
+          <h3 id="insightThis"></h3>
+        </div>
+        <div class="insight-box">
+          <span>📅 Last Month</span>
+          <h3 id="insightLast"></h3>
+        </div>
+        <div class="insight-box">
+          <span>📈 Trend</span>
+          <h3 id="insightTrend"></h3>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
